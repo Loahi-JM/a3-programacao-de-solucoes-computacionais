@@ -13,6 +13,12 @@ public class Categoria {
         this.embalagem = embalagem;
     }
 
+    public Categoria(Integer id, String tamanho, String embalagem) {
+        this.id = id;
+        this.tamanho = tamanho;
+        this.embalagem = embalagem;
+    }
+
     public Integer getId() {
         return id;
     }

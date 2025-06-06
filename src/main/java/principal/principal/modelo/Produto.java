@@ -100,8 +100,4 @@ public class Produto extends Categoria {
     public void setQuantidadeMaximaEmEstoque(Integer quantidadeMaximaEmEstoque) {
         this.quantidadeMaximaEmEstoque = quantidadeMaximaEmEstoque;
     }
-
-//    public ArrayList<Produto> getMinhaLista() {
-//        return dao.getMinhaLista();
-//    }
 }

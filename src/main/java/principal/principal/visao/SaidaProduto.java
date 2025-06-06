@@ -11,11 +11,9 @@ import java.util.ArrayList;
 
 public class SaidaProduto extends JFrame {
 
-    // DAO e dados
     private ProdutoDao produtoDao;
     private ArrayList<Produto> listaProdutos;
 
-    // Componentes da interface
     private JTable tabelaProdutos;
     private DefaultTableModel modeloTabela;
     private JTextField tfId, tfNome, tfPreco, tfQtdEstoque, tfQtdMinima, tfQtdMaxima;
@@ -155,6 +153,10 @@ public class SaidaProduto extends JFrame {
                     if (p.getQuantidadeEmEstoque() < pro.getQuantidadeMinimaEmEstoque()) {
                         JOptionPane.showMessageDialog(null, "A quantidade minima foi ultrapassada, realizar a compra de mais: " + p.getNome());
                     }
+
+                    if (p.getQuantidadeEmEstoque() > pro.getQuantidadeMaximaEmEstoque()) {
+                        JOptionPane.showMessageDialog(null, "A quantidade máxima foi ultrapassada. Não compre mais: " + p.getNome());
+                    }
                 }
             }
 
@@ -229,7 +231,7 @@ public class SaidaProduto extends JFrame {
         listaProdutos.clear();
 
         try {
-            ResultSet res = smt.executeQuery("SELECT * FROM produto");
+            ResultSet res = smt.executeQuery("SELECT * FROM produto ORDER BY nome ASC");
             while(res.next()) {
                 int id = res.getInt("id");
                 String nome = res.getString("nome");

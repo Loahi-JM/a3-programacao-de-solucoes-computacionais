@@ -54,21 +54,13 @@ public class Menu extends JFrame {
         });
         jMenuCategoria.add(jMenuItemCategoriaNovo);
 
-        jMenuItemCategoriaEdicao.setText("Editar");
+        jMenuItemCategoriaEdicao.setText("Gerenciar");
         jMenuItemCategoriaEdicao.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-
+                jMenuItemGerenciarCategoriaActionPerformed(e);
             }
         });
         jMenuCategoria.add(jMenuItemCategoriaEdicao);
-
-        jMenuItemCategoriaExclusao.setText("Excluir");
-        jMenuItemCategoriaExclusao.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-
-            }
-        });
-        jMenuCategoria.add(jMenuItemCategoriaExclusao);
 
         jMenuConfig.setText("Configurações");
         jMenuItemSair.setText("Sair");
@@ -111,6 +103,11 @@ public class Menu extends JFrame {
 
     private void jMenuItemAdicionarCategoriaActionPerformed(ActionEvent evt) {
         CadastrarCategoria objeto = new CadastrarCategoria();
+        objeto.setVisible(true);
+    }
+
+    public void jMenuItemGerenciarCategoriaActionPerformed(ActionEvent e) {
+        GerenciadorCategoria objeto = new GerenciadorCategoria();
         objeto.setVisible(true);
     }
 

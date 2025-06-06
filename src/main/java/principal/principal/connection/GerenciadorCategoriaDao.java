@@ -1,11 +1,10 @@
 package principal.principal.connection;
 
-import principal.principal.modelo.Produto;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
-import java.sql.*;
-import java.util.ArrayList;
-
-public class ProdutoDao {
+public class GerenciadorCategoriaDao {
 
     public Connection getConnection() {
         Connection connection = null;  //instância da conexão
