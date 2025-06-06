@@ -1,6 +1,13 @@
 package principal.principal.visao;
 
-public class Menu extends javax.swing.JFrame {
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+public class Menu extends JFrame {
 
     public Menu() {
         initComponents();
@@ -8,124 +15,132 @@ public class Menu extends javax.swing.JFrame {
 
     @SuppressWarnings("unchecked")
     private void initComponents() {
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenuArquivo = new javax.swing.JMenu();
-        jMenuItemNovoAluno = new javax.swing.JMenuItem();
-        jMenuItemGerenciarAlunos = new javax.swing.JMenuItem();
-        jMenuItemSair = new javax.swing.JMenuItem();
-        jMenuSobre = new javax.swing.JMenu();
+        jMenuBar1 = new JMenuBar();
+        jMenuProduto = new JMenu();
+        jMenuCategoria = new JMenu();
+        jMenuConfig = new JMenu();
+        jMenuItemNovoProduto = new JMenuItem();
+        jMenuItemSaidaProduto = new JMenuItem();
+        jMenuItemCategoriaNovo = new JMenuItem();
+        jMenuItemCategoriaEdicao = new JMenuItem();
+        jMenuItemCategoriaExclusao = new JMenuItem();
+        jMenuItemSair = new JMenuItem();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menu principal");
-
-        jMenuArquivo.setText("Arquivo");
-
-        jMenuItemNovoAluno.setText("Novo Produto");
-        jMenuItemNovoAluno.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemNovoAlunoActionPerformed(evt);
+        jMenuProduto.setText("Produto");
+        jMenuItemNovoProduto.setText("Novo");
+        jMenuItemNovoProduto.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                jMenuItemNovoProdutoActionPerformed(evt);
             }
         });
-        jMenuArquivo.add(jMenuItemNovoAluno);
+        jMenuProduto.add(jMenuItemNovoProduto);
 
-        jMenuItemGerenciarAlunos.setText("Nova Categoria");
-        jMenuItemGerenciarAlunos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemGerenciarAlunosActionPerformed(evt);
+        jMenuItemSaidaProduto.setText("Retirada");
+        jMenuItemSaidaProduto.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                jMenuItemSaidaProdutoActionPerformed(e);
             }
         });
-        jMenuArquivo.add(jMenuItemGerenciarAlunos);
+        jMenuProduto.add(jMenuItemSaidaProduto);
 
+        jMenuCategoria.setText("Categoria");
+        jMenuItemCategoriaNovo.setText("Novo");
+        jMenuItemCategoriaNovo.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                jMenuItemAdicionarCategoriaActionPerformed(evt);
+            }
+        });
+        jMenuCategoria.add(jMenuItemCategoriaNovo);
+
+        jMenuItemCategoriaEdicao.setText("Editar");
+        jMenuItemCategoriaEdicao.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        jMenuCategoria.add(jMenuItemCategoriaEdicao);
+
+        jMenuItemCategoriaExclusao.setText("Excluir");
+        jMenuItemCategoriaExclusao.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        jMenuCategoria.add(jMenuItemCategoriaExclusao);
+
+        jMenuConfig.setText("Configurações");
         jMenuItemSair.setText("Sair");
-        jMenuItemSair.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemSairActionPerformed(evt);
+        jMenuItemSair.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                System.exit(0);
             }
         });
-        jMenuArquivo.add(jMenuItemSair);
+        jMenuConfig.add(jMenuItemSair);
 
-        jMenuBar1.add(jMenuArquivo);
-
-        jMenuSobre.setText("Sobre");
-        jMenuBar1.add(jMenuSobre);
-
+        jMenuBar1.add(jMenuProduto);
+        jMenuBar1.add(jMenuCategoria);
+        jMenuBar1.add(jMenuConfig);
         setJMenuBar(jMenuBar1);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGap(0, 710, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGap(0, 496, Short.MAX_VALUE)
         );
 
         pack();
         setLocationRelativeTo(null);
-    }// </editor-fold>//GEN-END:initComponents
+    }
 
-    private void jMenuItemNovoAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemNovoAlunoActionPerformed
+    private void jMenuItemNovoProdutoActionPerformed(ActionEvent evt) {
         CadastroProduto objeto = new CadastroProduto();
         objeto.setVisible(true);
-    }//GEN-LAST:event_jMenuItemNovoAlunoActionPerformed
+    }
 
-    private void jMenuItemSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemSairActionPerformed
-        //Encerra o programa
-        System.exit(0);
-    }//GEN-LAST:event_jMenuItemSairActionPerformed
+    public void jMenuItemSaidaProdutoActionPerformed(ActionEvent e) {
+        SaidaProduto objeto = new SaidaProduto();
+        objeto.setVisible(true);
+    }
 
-    private void jMenuItemGerenciarAlunosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemGerenciarAlunosActionPerformed
-        //Instancia a tela de gerenciar de aluno
-//        FrmGerenciaAluno objeto = new FrmGerenciaAluno();
-//        objeto.setVisible(true);
-    }//GEN-LAST:event_jMenuItemGerenciarAlunosActionPerformed
+    private void jMenuItemAdicionarCategoriaActionPerformed(ActionEvent evt) {
+        CadastrarCategoria objeto = new CadastrarCategoria();
+        objeto.setVisible(true);
+    }
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-         */
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+            for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(FrmMenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(FrmMenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(FrmMenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(FrmMenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException |
+                 UnsupportedLookAndFeelException ex) {
+           Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
+        EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Menu().setVisible(true);
             }
         });
     }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu jMenuArquivo;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItemGerenciarAlunos;
-    private javax.swing.JMenuItem jMenuItemNovoAluno;
-    private javax.swing.JMenuItem jMenuItemSair;
-    private javax.swing.JMenu jMenuSobre;
-    // End of variables declaration//GEN-END:variables
+    private JMenu jMenuProduto;
+    private JMenu jMenuCategoria;
+    private JMenu jMenuConfig;
+    private JMenuBar jMenuBar1;
+    private JMenuItem jMenuItemCategoriaNovo;
+    private JMenuItem jMenuItemCategoriaEdicao;
+    private JMenuItem jMenuItemCategoriaExclusao;
+    private JMenuItem jMenuItemNovoProduto;
+    private JMenuItem jMenuItemSaidaProduto;
+    private JMenuItem jMenuItemSair;
 }

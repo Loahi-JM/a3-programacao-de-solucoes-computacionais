@@ -1,12 +1,8 @@
 package principal.principal;
 
-import principal.principal.connection.SqlConnection;
 import principal.principal.visao.Menu;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 public class Main {
     public static void main(String[] args) throws SQLException {

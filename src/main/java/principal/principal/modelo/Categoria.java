@@ -1,11 +1,39 @@
 package principal.principal.modelo;
 
-import principal.principal.enums.Embalagem;
-import principal.principal.enums.Tamanho;
-
 public class Categoria {
 
     private Integer id;
-    private Tamanho tamanho;
-    private Embalagem embalagem;
+    private String tamanho;
+    private String embalagem;
+
+    public Categoria() {}
+
+    public Categoria(String tamanho, String embalagem) {
+        this.tamanho = tamanho;
+        this.embalagem = embalagem;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getTamanho() {
+        return tamanho;
+    }
+
+    public void setTamanho(String tamanho) {
+        this.tamanho = tamanho;
+    }
+
+    public String getEmbalagem() {
+        return embalagem;
+    }
+
+    public void setEmbalagem(String embalagem) {
+        this.embalagem = embalagem;
+    }
 }
