@@ -20,7 +20,7 @@ create table produto (
     quantidade_em_estoque varchar(255),
     quantidade_minima_em_estoque varchar(255),
     quantidade_maxima_em_estoque varchar(255),
-    id_categoria int not null,
+    id_categoria int,
     FOREIGN KEY (id_categoria) REFERENCES categoria(id)
 );
 
